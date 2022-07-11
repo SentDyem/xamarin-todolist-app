@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="todolist_app.MainPage"
              Title="Todolist">
+    
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Notifications"
                  
@@ -14,8 +15,15 @@
                  Priority="0" />
     </ContentPage.ToolbarItems>
     <StackLayout>
-        <Label Text="test">
+        <Label Text="Good Morning" FontSize="26" TextColor="Black" Margin="15" FontAttributes="Bold">
         </Label>
+        <Frame BackgroundColor="White" HeightRequest="50" WidthRequest="30" HasShadow="True" Margin="20"
+               HorizontalOptions="CenterAndExpand" BorderColor="LightGray" CornerRadius="5" >
+            <StackLayout>
+                <Label Text="Sat" HorizontalOptions="CenterAndExpand" />
+                <Label Text="14" HorizontalOptions="CenterAndExpand" />
+            </StackLayout>
+        </Frame>
     </StackLayout>
 
 </ContentPage>
