@@ -14,15 +14,23 @@
                  Order="Primary"
                  Priority="0" />
     </ContentPage.ToolbarItems>
+    
     <StackLayout>
+        <!-- Here's a valid comment. Notice it's outside the <UserControl> tag's braces -->
         <Label Text="Good Morning" FontSize="26" TextColor="Black" Margin="15" FontAttributes="Bold">
         </Label>
-        <Frame BackgroundColor="White" HeightRequest="50" WidthRequest="30" HasShadow="True" Margin="20"
-               HorizontalOptions="CenterAndExpand" BorderColor="LightGray" CornerRadius="5" >
-            <StackLayout>
-                <Label Text="Sat" HorizontalOptions="CenterAndExpand" />
-                <Label Text="14" HorizontalOptions="CenterAndExpand" />
-            </StackLayout>
+        <!-- Блоки дней календаря -->
+        <StackLayout>
+            
+        </StackLayout>
+        <Frame BackgroundColor="White" HeightRequest="45" WidthRequest="35" HasShadow="True" Margin="20"
+               HorizontalOptions="CenterAndExpand"  CornerRadius="20" >
+            <!-- Внутрянка блока, инфа о текущем дне -->
+                <StackLayout>
+                    <Label Text="Sat" FontSize="18" TextColor="Gray" HorizontalOptions="CenterAndExpand" />
+                    <Label Text="14" FontSize ="18" TextColor ="Black" HorizontalOptions="CenterAndExpand" />
+                    <Label Text="test" BackgroundColor="LightBlue"/>
+                </StackLayout>
         </Frame>
     </StackLayout>
 
