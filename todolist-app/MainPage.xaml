@@ -2,9 +2,10 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="todolist_app.MainPage"
-             Title="Todolist">
-    
-    <ContentPage.ToolbarItems>
+             Title="Todolist"
+             >
+
+    <ContentPage.ToolbarItems BackgroundColor="White" >
         <ToolbarItem Text="Notifications"
                  
                  Order="Primary"
@@ -16,13 +17,28 @@
     </ContentPage.ToolbarItems>
     
     <StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="110" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="0.5*" />
+                <ColumnDefinition Width="0.5*" />
+            </Grid.ColumnDefinitions>
+            <BoxView/>
+            <Label Text="Good Morning" FontSize="26" TextColor="Black" Margin="15" FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="CenterAndExpand">
+            </Label>
+            <BoxView Grid.Column="1"
+                  />
+            <Button Grid.Column="1" Text="Notification" WidthRequest="60" HeightRequest="60"
+           HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" ></Button>
+            <BoxView Grid.Column="2"
+                  />
+            <Button Grid.Column="2" Text="Settings" WidthRequest="60" HeightRequest="60" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Button>
+        </Grid>
         <!-- Here's a valid comment. Notice it's outside the <UserControl> tag's braces -->
-        <Label Text="Good Morning" FontSize="26" TextColor="Black" Margin="15" FontAttributes="Bold">
-        </Label>
         <!-- Блоки дней календаря -->
-        <StackLayout>
-            
-        </StackLayout>
         <Frame BackgroundColor="White" HeightRequest="45" WidthRequest="35" HasShadow="True" Margin="20"
                HorizontalOptions="CenterAndExpand"  CornerRadius="20" >
             <!-- Внутрянка блока, инфа о текущем дне -->
@@ -32,6 +48,10 @@
                     <Label Text="test" BackgroundColor="LightBlue"/>
                 </StackLayout>
         </Frame>
+        <StackLayout BackgroundColor="Red">
+            <Label Text="5 Tasks Today"></Label>
+            
+        </StackLayout>
     </StackLayout>
 
 </ContentPage>
