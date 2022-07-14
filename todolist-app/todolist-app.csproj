@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -9,6 +9,18 @@
     <DebugType>portable</DebugType>
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\FontAwesome6Brands-Regular-400.otf" />
+    <None Remove="Assets\FontAwesome6Free-Regular-400.otf" />
+    <None Remove="Assets\FontAwesome6Free-Solid-900.otf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\FontAwesome6Brands-Regular-400.otf" />
+    <EmbeddedResource Include="Assets\FontAwesome6Free-Regular-400.otf" />
+    <EmbeddedResource Include="Assets\FontAwesome6Free-Solid-900.otf" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.2" />

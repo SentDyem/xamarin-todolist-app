@@ -2,8 +2,19 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="todolist_app.MainPage"
-             Title="Todolist"
-             >
+             xmlns:fontAwesome="clr-namespace:FontAwesome"
+             Title="Todolist">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <x:Array x:Key="phones" Type="{x:Type x:String}">
+                <x:String>iPhone 7</x:String>
+                <x:String>Google Pixel 5</x:String>
+                <x:String>Huawei P10</x:String>
+                <x:String>Xiaomi Mi6</x:String>
+            </x:Array>
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
     <ContentPage.ToolbarItems BackgroundColor="White" >
         <ToolbarItem Text="Notifications"
@@ -17,41 +28,42 @@
     </ContentPage.ToolbarItems>
     
     <StackLayout>
-        <Grid>
+        <Grid Padding="10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="110" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*" />
-                <ColumnDefinition Width="0.5*" />
-                <ColumnDefinition Width="0.5*" />
+                <ColumnDefinition Width="2.6*" />
+                <ColumnDefinition Width="0.4*" />
+                <ColumnDefinition Width="0.4*" />
             </Grid.ColumnDefinitions>
             <BoxView/>
-            <Label Text="Good Morning" FontSize="26" TextColor="Black" Margin="15" FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="CenterAndExpand">
+            <Label Text="Зидан" FontSize="26" TextColor="Black" Margin="15"  FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="CenterAndExpand">
             </Label>
             <BoxView Grid.Column="1"
                   />
-            <Button Grid.Column="1" Text="Notification" WidthRequest="60" HeightRequest="60"
-           HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" ></Button>
+            <Button Grid.Column="1"  FontFamily ="FAS" Text="{x:Static fontAwesome:FontAwesomeIcons.Bell}" FontSize ="Medium" WidthRequest="60" HeightRequest="60"
+           HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="Transparent" ></Button>
             <BoxView Grid.Column="2"
                   />
-            <Button Grid.Column="2" Text="Settings" WidthRequest="60" HeightRequest="60" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Button>
+            <Button Grid.Column="2" FontFamily ="FAS" Text="{x:Static fontAwesome:FontAwesomeIcons.Bars}" FontSize ="Medium" WidthRequest="60" HeightRequest="60" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="Transparent"></Button>
         </Grid>
         <!-- Here's a valid comment. Notice it's outside the <UserControl> tag's braces -->
         <!-- Блоки дней календаря -->
-        <Frame BackgroundColor="White" HeightRequest="45" WidthRequest="35" HasShadow="True" Margin="20"
+        <Frame BackgroundColor="Black" HeightRequest="45" WidthRequest="35" HasShadow="True" 
                HorizontalOptions="CenterAndExpand"  CornerRadius="20" >
             <!-- Внутрянка блока, инфа о текущем дне -->
-                <StackLayout>
+                <StackLayout VerticalOptions="Start">
                     <Label Text="Sat" FontSize="18" TextColor="Gray" HorizontalOptions="CenterAndExpand" />
                     <Label Text="14" FontSize ="18" TextColor ="Black" HorizontalOptions="CenterAndExpand" />
                     <Label Text="test" BackgroundColor="LightBlue"/>
                 </StackLayout>
         </Frame>
-        <StackLayout BackgroundColor="Red">
-            <Label Text="5 Tasks Today"></Label>
-            
+        <StackLayout Padding="10">
+            <Label Text="4 Tasks Today" FontSize="26" TextColor="Black" Margin="15" FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="CenterAndExpand"></Label>
+            <ListView x:Name="phonesList" ItemsSource="{StaticResource Key=phones}"  />
         </StackLayout>
+        <Button BackgroundColor="OrangeRed" WidthRequest="300" Text="Add a New Task" TextColor="White" HorizontalOptions="Center" VerticalOptions="End" Margin="30" CornerRadius="10"/>
     </StackLayout>
 
 </ContentPage>
