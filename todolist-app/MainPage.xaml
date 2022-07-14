@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="todolist_app.MainPage"
              xmlns:fontAwesome="clr-namespace:FontAwesome"
-             Title="Todolist">
+             Title="Todolist"
+             NavigationPage.HasNavigationBar="false">
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -12,21 +13,16 @@
                 <x:String>Google Pixel 5</x:String>
                 <x:String>Huawei P10</x:String>
                 <x:String>Xiaomi Mi6</x:String>
+                <x:String>Xiaomi Mi6</x:String>
+                <x:String>Xiaomi Mi6</x:String>
+                <x:String>Xiaomi Mi6</x:String>
+                <x:String>Xiaomi Mi6</x:String>
+                <x:String>Xiaomi Mi6</x:String>
+                <x:String>Xiaomi Mi6</x:String>
             </x:Array>
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <ContentPage.ToolbarItems BackgroundColor="White" >
-        <ToolbarItem Text="Notifications"
-                 
-                 Order="Primary"
-                 Priority="0" />
-        <ToolbarItem Text="Settings"
-                 
-                 Order="Primary"
-                 Priority="0" />
-    </ContentPage.ToolbarItems>
-    
     <StackLayout>
         <Grid Padding="10">
             <Grid.RowDefinitions>
@@ -38,7 +34,7 @@
                 <ColumnDefinition Width="0.4*" />
             </Grid.ColumnDefinitions>
             <BoxView/>
-            <Label Text="Зидан" FontSize="26" TextColor="Black" Margin="15"  FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="CenterAndExpand">
+            <Label Text="Деловик" FontSize="26" TextColor="Black" Margin="15"  FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="CenterAndExpand">
             </Label>
             <BoxView Grid.Column="1"
                   />
@@ -48,20 +44,21 @@
                   />
             <Button Grid.Column="2" FontFamily ="FAS" Text="{x:Static fontAwesome:FontAwesomeIcons.Bars}" FontSize ="Medium" WidthRequest="60" HeightRequest="60" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="Transparent"></Button>
         </Grid>
-        <!-- Here's a valid comment. Notice it's outside the <UserControl> tag's braces -->
         <!-- Блоки дней календаря -->
-        <Frame BackgroundColor="Black" HeightRequest="45" WidthRequest="35" HasShadow="True" 
+        <StackLayout BackgroundColor="AliceBlue">
+            <Frame HeightRequest="75" WidthRequest="20" HasShadow="True" 
                HorizontalOptions="CenterAndExpand"  CornerRadius="20" >
-            <!-- Внутрянка блока, инфа о текущем дне -->
-                <StackLayout VerticalOptions="Start">
-                    <Label Text="Sat" FontSize="18" TextColor="Gray" HorizontalOptions="CenterAndExpand" />
-                    <Label Text="14" FontSize ="18" TextColor ="Black" HorizontalOptions="CenterAndExpand" />
+                <!-- Внутрянка блока, инфа о текущем дне -->
+                <StackLayout>
+                    <Label Text="Sat" FontSize="12" TextColor="Gray" HorizontalOptions="CenterAndExpand" BackgroundColor="Red"/>
+                    <Label Text="14" FontSize ="12" TextColor ="Black" HorizontalOptions="CenterAndExpand" />
                     <Label Text="test" BackgroundColor="LightBlue"/>
                 </StackLayout>
-        </Frame>
+            </Frame>
+        </StackLayout>
         <StackLayout Padding="10">
             <Label Text="4 Tasks Today" FontSize="26" TextColor="Black" Margin="15" FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="CenterAndExpand"></Label>
-            <ListView x:Name="phonesList" ItemsSource="{StaticResource Key=phones}"  />
+            <ListView x:Name="phonesList" ItemsSource="{StaticResource Key=phones}" ItemTapped="phonesList_ItemTapped" />
         </StackLayout>
         <Button BackgroundColor="OrangeRed" WidthRequest="300" Text="Add a New Task" TextColor="White" HorizontalOptions="Center" VerticalOptions="End" Margin="30" CornerRadius="10"/>
     </StackLayout>

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="todolist_app.Views.TaskInfo"
+             NavigationPage.HasNavigationBar="false"
+             xmlns:fontAwesome="clr-namespace:FontAwesome">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid Padding="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="110" />
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.1*"/>
+                    <ColumnDefinition  />
+                    <ColumnDefinition Width="0.1*" />
+                </Grid.ColumnDefinitions>
+                <BoxView/>
+                <Button FontFamily ="FAS" Text="{x:Static fontAwesome:FontAwesomeIcons.AngleLeft}" FontSize ="Medium" WidthRequest="60" HeightRequest="60" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="Transparent" Clicked="DownButton_Clicked"></Button>
+                <BoxView Grid.Column="1"/>
+                <Label Grid.Column="1" Text="Задача на сегодня" FontSize="26" TextColor="Black" Margin="15"  FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="CenterAndExpand">
+                </Label>
+                <BoxView Grid.Column="2"/>
+                <Button Grid.Column ="2" FontFamily="FAS" Text="{x:Static fontAwesome:FontAwesomeIcons.EllipsisVertical}" FontSize ="Medium" WidthRequest="60" HeightRequest="60" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="Transparent" Clicked="DownButton_Clicked"></Button>
+                <BoxView BackgroundColor="Red" Grid.Row="1" Grid.ColumnSpan="3"/>
+                <Label Grid.Row ="1" Text="bla bla bla bla"/>
+                <BoxView Grid.Row="2" BackgroundColor="Pink"/>
+            </Grid>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
