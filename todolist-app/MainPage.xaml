@@ -7,26 +7,12 @@
              NavigationPage.HasNavigationBar="false">
 
     <ContentPage.Resources>
-        <ResourceDictionary>
-            <x:Array x:Key="phones" Type="{x:Type x:String}">
-                <x:String>iPhone 7</x:String>
-                <x:String>Google Pixel 5</x:String>
-                <x:String>Huawei P10</x:String>
-                <x:String>Xiaomi Mi6</x:String>
-                <x:String>Xiaomi Mi6</x:String>
-                <x:String>Xiaomi Mi6</x:String>
-                <x:String>Xiaomi Mi6</x:String>
-                <x:String>Xiaomi Mi6</x:String>
-                <x:String>Xiaomi Mi6</x:String>
-                <x:String>Xiaomi Mi6</x:String>
-            </x:Array>
-        </ResourceDictionary>
     </ContentPage.Resources>
 
     <StackLayout>
         <Grid Padding="10">
             <Grid.RowDefinitions>
-                <RowDefinition Height="110" />
+                <RowDefinition Height="70" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2.6*" />
@@ -42,23 +28,33 @@
            HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="Transparent" ></Button>
             <BoxView Grid.Column="2"
                   />
-            <Button Grid.Column="2" FontFamily ="FAS" Text="{x:Static fontAwesome:FontAwesomeIcons.Bars}" FontSize ="Medium" WidthRequest="60" HeightRequest="60" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="Transparent"></Button>
+            <Button Grid.Column="2" FontFamily ="FAS" Text="{x:Static fontAwesome:FontAwesomeIcons.MagnifyingGlass}" FontSize ="Medium" WidthRequest="60" HeightRequest="60" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="Transparent"></Button>
         </Grid>
         <!-- Блоки дней календаря -->
         <StackLayout BackgroundColor="AliceBlue">
-            <Frame HeightRequest="75" WidthRequest="20" HasShadow="True" 
+            <Frame HeightRequest="120" WidthRequest="100" HasShadow="True" 
                HorizontalOptions="CenterAndExpand"  CornerRadius="20" >
                 <!-- Внутрянка блока, инфа о текущем дне -->
                 <StackLayout>
                     <Label Text="Sat" FontSize="12" TextColor="Gray" HorizontalOptions="CenterAndExpand" BackgroundColor="Red"/>
                     <Label Text="14" FontSize ="12" TextColor ="Black" HorizontalOptions="CenterAndExpand" />
-                    <Label Text="test" BackgroundColor="LightBlue"/>
+                    <Label BackgroundColor="LightBlue"/>
                 </StackLayout>
             </Frame>
         </StackLayout>
         <StackLayout Padding="10">
-            <Label Text="4 Tasks Today" FontSize="26" TextColor="Black" Margin="15" FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="CenterAndExpand"></Label>
-            <ListView x:Name="phonesList" ItemsSource="{StaticResource Key=phones}" ItemTapped="phonesList_ItemTapped" />
+            <Label Text="Актуальные задачи" FontSize="20" TextColor="Black" Margin="15" FontAttributes="None" HorizontalOptions="Start" VerticalOptions="CenterAndExpand"></Label>
+            <ListView x:Name="phonesList" ItemTapped="phonesList_ItemTapped" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">
+                                <Label Text="test" FontSize="18"></Label>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
         <Button BackgroundColor="OrangeRed" WidthRequest="300" Text="Add a New Task" TextColor="White" HorizontalOptions="Center" VerticalOptions="End" Margin="30" CornerRadius="10"/>
     </StackLayout>
