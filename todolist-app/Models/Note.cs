@@ -5,12 +5,13 @@ using System.Text;
 
 namespace todolist_app.Models
 {
-    class Task
-{
+    public class Note
+    {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
 
-        public string Note { get; set; }
+        public string Content { get; set; }
 
-        public DateTime Time { get; set; }
+        public DateTime Date { get; set; }
+    }
 }

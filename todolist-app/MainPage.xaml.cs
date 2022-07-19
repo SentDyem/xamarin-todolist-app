@@ -21,5 +21,21 @@ namespace todolist_app
             await Navigation.PushAsync(new TaskInfo());
 
         }
+
+        private async void AddButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new TaskInfo());
+        }
+
+        private async void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        protected override async void OnAppearing()
+        {
+            notesList.ItemsSource = await App.NoteService.GetNotesAsync();
+                base.OnAppearing();
+        }
     }
 }

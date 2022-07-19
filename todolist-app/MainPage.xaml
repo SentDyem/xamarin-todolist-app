@@ -30,33 +30,21 @@
                   />
             <Button Grid.Column="2" FontFamily ="FAS" Text="{x:Static fontAwesome:FontAwesomeIcons.MagnifyingGlass}" FontSize ="Medium" WidthRequest="60" HeightRequest="60" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="Transparent"></Button>
         </Grid>
-        <!-- Блоки дней календаря -->
-        <StackLayout BackgroundColor="AliceBlue">
-            <Frame HeightRequest="120" WidthRequest="100" HasShadow="True" 
-               HorizontalOptions="CenterAndExpand"  CornerRadius="20" >
-                <!-- Внутрянка блока, инфа о текущем дне -->
-                <StackLayout>
-                    <Label Text="Sat" FontSize="12" TextColor="Gray" HorizontalOptions="CenterAndExpand" BackgroundColor="Red"/>
-                    <Label Text="14" FontSize ="12" TextColor ="Black" HorizontalOptions="CenterAndExpand" />
-                    <Label BackgroundColor="LightBlue"/>
-                </StackLayout>
-            </Frame>
-        </StackLayout>
         <StackLayout Padding="10">
             <Label Text="Актуальные задачи" FontSize="20" TextColor="Black" Margin="15" FontAttributes="None" HorizontalOptions="Start" VerticalOptions="CenterAndExpand"></Label>
-            <ListView x:Name="phonesList" ItemTapped="phonesList_ItemTapped" >
+            <ListView x:Name="notesList" ItemTapped="phonesList_ItemTapped" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Padding="10" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">
-                                <Label Text="test" FontSize="18"></Label>
+                                <Label Text="{Binding Content}" FontSize="18"></Label>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
         </StackLayout>
-        <Button BackgroundColor="OrangeRed" WidthRequest="300" Text="Add a New Task" TextColor="White" HorizontalOptions="Center" VerticalOptions="End" Margin="30" CornerRadius="10"/>
+        <Button BackgroundColor="OrangeRed" WidthRequest="300" Text="Add a New Task" TextColor="White" HorizontalOptions="Center" VerticalOptions="End" Margin="30" CornerRadius="10" Clicked="AddButton_Clicked"/>
     </StackLayout>
 
 </ContentPage>
