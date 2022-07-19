@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using todolist_app.Models;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -61,6 +62,11 @@ public partial class TaskInfo : ContentPage
             Note note = (Note)BindingContext;
             await App.NoteService.DeleteNoteAsync(note);
             await Shell.Current.GoToAsync("..");
+        }
+
+        private async void ShareButton_ClickedAsync(object sender, EventArgs e)
+        {
+            await Share.RequestAsync("This is a test message!!!", "Hello");
         }
     }
 }
