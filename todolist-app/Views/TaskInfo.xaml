@@ -24,10 +24,12 @@
                 <BoxView Grid.Column="2"/>
                 <Button Grid.Column ="2" FontFamily="FAS" Text="{x:Static fontAwesome:FontAwesomeIcons.ShareNodes}" FontSize ="Medium" WidthRequest="60" HeightRequest="60" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="Transparent" Clicked="ShareButton_ClickedAsync"></Button>
                 <BoxView Grid.Row="1" Grid.ColumnSpan="3"/>
-                <Editor Grid.Row ="1" Grid.ColumnSpan="3" Placeholder="Текст задачи " Text="{Binding Content}" HeightRequest="350"/>
+                <Editor Grid.Row ="1" Grid.ColumnSpan="3" Placeholder="Введите текст" Text="{Binding Content}" HeightRequest="350"/>
             </Grid>
-            <Button Text="Сохранить" Clicked="OnSaveButton_Clicked"/>
-            <Button Text="Удалить" Clicked="OnDeleteButton_Clicked"/>
-        </StackLayout>
+            <StackLayout Orientation="Vertical">
+                <Button BackgroundColor="LightGreen" WidthRequest="300" Text="Сохранить" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" Margin="30" CornerRadius="10" Clicked="OnSaveButton_Clicked"/>
+                <Button BackgroundColor="PaleVioletRed" WidthRequest="300" Text="Удалить" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" Margin="30" CornerRadius="10" Clicked="OnDeleteButton_Clicked"/>
+            </StackLayout>
+            </StackLayout>
     </ContentPage.Content>
 </ContentPage>
