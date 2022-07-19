@@ -2,14 +2,13 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="todolist_app.Views.TaskInfo"
-             NavigationPage.HasNavigationBar="false"
+             Shell.NavBarIsVisible="False"
              xmlns:fontAwesome="clr-namespace:FontAwesome">
     <ContentPage.Content>
         <StackLayout>
             <Grid Padding="10">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="110" />
-                    <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
@@ -25,10 +24,10 @@
                 <BoxView Grid.Column="2"/>
                 <Button Grid.Column ="2" FontFamily="FAS" Text="{x:Static fontAwesome:FontAwesomeIcons.EllipsisVertical}" FontSize ="Medium" WidthRequest="60" HeightRequest="60" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="Transparent" Clicked="DownButton_Clicked"></Button>
                 <BoxView BackgroundColor="Red" Grid.Row="1" Grid.ColumnSpan="3"/>
-                <Label Grid.Row ="1" Text="bla bla bla bla"/>
-                <BoxView Grid.Row="2" BackgroundColor="Pink"/>
+                <Editor Grid.Row ="1" Grid.ColumnSpan="3" Placeholder="Текст задачи " Text="bla bla bla bla" HeightRequest="350"/>
             </Grid>
-
+            <Button Text="Сохранить" Clicked="OnSaveButton_Clicked"/>
+            <Button Text="Удалить" Clicked="OnDeleteButton_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

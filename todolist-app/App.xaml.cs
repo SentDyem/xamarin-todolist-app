@@ -25,7 +25,7 @@ namespace todolist_app
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new AppShell();
  
         }
 

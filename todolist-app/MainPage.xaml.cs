@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using todolist_app.Models;
 using todolist_app.Views;
 using Xamarin.Forms;
 
@@ -14,6 +15,7 @@ namespace todolist_app
         public MainPage()
         {
             InitializeComponent();
+        
         }
 
         private async void phonesList_ItemTapped(object sender, ItemTappedEventArgs e)
@@ -24,12 +26,16 @@ namespace todolist_app
 
         private async void AddButton_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new TaskInfo());
+            await Shell.Current.GoToAsync(nameof(TaskInfo));
         }
 
         private async void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            if (e.CurrentSelection != null)
+            {
+                Note note = (Note)e.CurrentSelection.FirstOrDefault();
+                await Shell.Current.GoToAsync($"{nameof(TaskInfo)}?{nameof(TaskInfo.ItemId)}={note.Id.ToString()}");
+            }
         }
 
         protected override async void OnAppearing()

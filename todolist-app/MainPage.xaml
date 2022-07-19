@@ -4,7 +4,7 @@
              x:Class="todolist_app.MainPage"
              xmlns:fontAwesome="clr-namespace:FontAwesome"
              Title="Todolist"
-             NavigationPage.HasNavigationBar="false">
+             Shell.NavBarIsVisible="False">
 
     <ContentPage.Resources>
     </ContentPage.Resources>
@@ -44,7 +44,7 @@
                 </ListView.ItemTemplate>
             </ListView>
         </StackLayout>
-        <Button BackgroundColor="OrangeRed" WidthRequest="300" Text="Add a New Task" TextColor="White" HorizontalOptions="Center" VerticalOptions="End" Margin="30" CornerRadius="10" Clicked="AddButton_Clicked"/>
+        <Button BackgroundColor="OrangeRed" WidthRequest="300" Text="Добавить" TextColor="White" HorizontalOptions="Center" VerticalOptions="End" Margin="30" CornerRadius="10" Clicked="AddButton_Clicked"/>
     </StackLayout>
 
 </ContentPage>
