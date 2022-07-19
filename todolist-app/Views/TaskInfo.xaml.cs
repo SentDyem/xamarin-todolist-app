@@ -44,16 +44,23 @@ public partial class TaskInfo : ContentPage
             await Navigation.PushAsync(new MainPage());
         }
 
-        private void OnSaveButton_Clicked(object sender, EventArgs e)
+        private async void OnSaveButton_Clicked(object sender, EventArgs e)
         {
             Note note = (Note)BindingContext;
             note.Date = DateTime.UtcNow;
-            if 
+            note.Completed = false;
+            if (!string.IsNullOrWhiteSpace(note.Content))
+            {
+                await App.NoteService.SaveNoteAsync(note);
+            }
+            await Shell.Current.GoToAsync("..");
         }
 
-        private void OnDeleteButton_Clicked(object sender, EventArgs e)
+        private async void OnDeleteButton_Clicked(object sender, EventArgs e)
         {
-
+            Note note = (Note)BindingContext;
+            await App.NoteService.DeleteNoteAsync(note);
+            await Shell.Current.GoToAsync("..");
         }
     }
 }

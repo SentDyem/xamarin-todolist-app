@@ -8,12 +8,12 @@
         <StackLayout>
             <Grid Padding="10">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="110" />
+                    <RowDefinition Height="70" />
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="0.1*"/>
-                    <ColumnDefinition  />
+                    <ColumnDefinition  Width="0.7*"/>
                     <ColumnDefinition Width="0.1*" />
                 </Grid.ColumnDefinitions>
                 <BoxView/>
@@ -22,9 +22,9 @@
                 <Label Grid.Column="1" Text="Задача на сегодня" FontSize="26" TextColor="Black" Margin="15"  FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="CenterAndExpand">
                 </Label>
                 <BoxView Grid.Column="2"/>
-                <Button Grid.Column ="2" FontFamily="FAS" Text="{x:Static fontAwesome:FontAwesomeIcons.EllipsisVertical}" FontSize ="Medium" WidthRequest="60" HeightRequest="60" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="Transparent" Clicked="DownButton_Clicked"></Button>
-                <BoxView BackgroundColor="Red" Grid.Row="1" Grid.ColumnSpan="3"/>
-                <Editor Grid.Row ="1" Grid.ColumnSpan="3" Placeholder="Текст задачи " Text="bla bla bla bla" HeightRequest="350"/>
+                <Button Grid.Column ="2" FontFamily="FAS" Text="{x:Static fontAwesome:FontAwesomeIcons.ShareNodes}" FontSize ="Medium" WidthRequest="60" HeightRequest="60" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="Transparent" Clicked="DownButton_Clicked"></Button>
+                <BoxView Grid.Row="1" Grid.ColumnSpan="3"/>
+                <Editor Grid.Row ="1" Grid.ColumnSpan="3" Placeholder="Текст задачи " Text="{Binding Content}" HeightRequest="350"/>
             </Grid>
             <Button Text="Сохранить" Clicked="OnSaveButton_Clicked"/>
             <Button Text="Удалить" Clicked="OnDeleteButton_Clicked"/>

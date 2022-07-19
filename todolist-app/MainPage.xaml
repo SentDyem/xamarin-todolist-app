@@ -32,12 +32,13 @@
         </Grid>
         <StackLayout Padding="10">
             <Label Text="Актуальные задачи" FontSize="20" TextColor="Black" Margin="15" FontAttributes="None" HorizontalOptions="Start" VerticalOptions="CenterAndExpand"></Label>
-            <ListView x:Name="notesList" ItemTapped="phonesList_ItemTapped" >
+            <ListView x:Name="notesList" ItemTapped="OnSelectionChanged" SelectionMode="Single">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Padding="10" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">
                                 <Label Text="{Binding Content}" FontSize="18"></Label>
+                                <Label Text="{Binding Date}" FontSize="10"></Label>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

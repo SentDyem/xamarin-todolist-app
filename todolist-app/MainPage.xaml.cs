@@ -29,11 +29,11 @@ namespace todolist_app
             await Shell.Current.GoToAsync(nameof(TaskInfo));
         }
 
-        private async void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void OnSelectionChanged(object sender, ItemTappedEventArgs e)
         {
-            if (e.CurrentSelection != null)
+            if (e.Item != null)
             {
-                Note note = (Note)e.CurrentSelection.FirstOrDefault();
+                Note note = (Note)e.Item as Note;
                 await Shell.Current.GoToAsync($"{nameof(TaskInfo)}?{nameof(TaskInfo.ItemId)}={note.Id.ToString()}");
             }
         }
