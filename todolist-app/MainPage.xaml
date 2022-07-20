@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="todolist_app.MainPage"
              xmlns:fontAwesome="clr-namespace:FontAwesome"
+             xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms" 
              Title="Todolist"
              Shell.NavBarIsVisible="False">
 
@@ -31,7 +32,8 @@
         <StackLayout Padding="10">
             <SearchBar Grid.Column="1" Placeholder="Поиск" TextChanged="SearchBar_TextChanged"></SearchBar>
             <CollectionView x:Name="notesList" SelectionChanged="OnSelectionChanged" SelectionMode="Single">
-                <CollectionView.ItemTemplate>
+                
+                    <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid Padding="10" RowDefinitions ="50" ColumnDefinitions ="45, *">
                             <BoxView Grid.Column= "1"/>
@@ -41,9 +43,36 @@
 
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
+                <CollectionView.EmptyView>
+                    <ContentView>
+                        
+                        <StackLayout HorizontalOptions="CenterAndExpand"
+                             VerticalOptions="CenterAndExpand">
+                            
+                            <Label Text="Заметки не найдены."
+                           Margin="10,25,10,10"
+                           FontAttributes="Bold"
+                           FontSize="18"
+                           HorizontalOptions="Fill"
+                           HorizontalTextAlignment="Center" />
+                            <Label Text=" Нажмите кнопку Добавить, чтобы создать новую заметку."
+                           FontAttributes="Italic"
+                           FontSize="12"
+                           HorizontalOptions="Fill"
+                           HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                    </ContentView>
+                </CollectionView.EmptyView>
             </CollectionView>
+            
         </StackLayout>
         <Button BackgroundColor="OrangeRed" WidthRequest="300" Text="Добавить" TextColor="White" HorizontalOptions="Center" VerticalOptions="End" Margin="30" CornerRadius="10" Clicked="AddButton_Clicked"/>
+        <forms:AnimationView x:Name="animationView"
+    Animation="resource://Resources.95434-history.json?assembly=todolist-app"
+    AnimationSource="EmbeddedResource"
+                             AutoPlay="True"
+    VerticalOptions="FillAndExpand"
+    HorizontalOptions="FillAndExpand" />
     </StackLayout>
 
 </ContentPage>

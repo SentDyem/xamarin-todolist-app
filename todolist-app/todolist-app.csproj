@@ -20,9 +20,11 @@
     <EmbeddedResource Include="Assets\FontAwesome6Brands-Regular-400.otf" />
     <EmbeddedResource Include="Assets\FontAwesome6Free-Regular-400.otf" />
     <EmbeddedResource Include="Assets\FontAwesome6Free-Solid-900.otf" />
+    <EmbeddedResource Include="Resources\95434-history.json" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie" Version="4.1.0" />
     <PackageReference Include="Plugin.LocalNotification" Version="9.2.0" />
     <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
     <PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.2" />
