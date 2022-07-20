@@ -26,7 +26,7 @@
             <BoxView Grid.Column="2"
                   />
             <Button Grid.Column="2"  FontFamily ="FAS" Text="{x:Static fontAwesome:FontAwesomeIcons.CircleInfo}" FontSize ="Medium" WidthRequest="60" HeightRequest="60"
-           HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="Transparent" ></Button>
+           HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="Transparent" Clicked="OpenPooupButton_Clicked"></Button>
         </Grid>
         
         <StackLayout Padding="10">

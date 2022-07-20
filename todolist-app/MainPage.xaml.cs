@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using todolist_app.Models;
 using todolist_app.Views;
+using Xamarin.CommunityToolkit.Extensions;
 using Xamarin.Forms;
 
 namespace todolist_app
@@ -61,6 +62,11 @@ namespace todolist_app
         private async void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
         {
             notesList.ItemsSource = await App.NoteService.GetNotesSearchAsync(e.NewTextValue);
+        }
+
+        private async void OpenPooupButton_Clicked(object sender, EventArgs e)
+        {
+            await DisplayAlert("Информация о приложении", "Деловик ver. 0.1", "OK");
         }
     }
 }
