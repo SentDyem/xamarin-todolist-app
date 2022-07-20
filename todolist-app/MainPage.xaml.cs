@@ -17,8 +17,9 @@ namespace todolist_app
         {
             InitializeComponent();
 
-    
-        
+            BindingContext = new Note();
+
+
         }
 
         private async void phonesList_ItemTapped(object sender, ItemTappedEventArgs e)
@@ -49,6 +50,7 @@ namespace todolist_app
 
         private async void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
+            
             var checkbox = (CheckBox)sender;
             var selectedNote = BindingContext as Note;
             selectedNote.Completed = e.Value;

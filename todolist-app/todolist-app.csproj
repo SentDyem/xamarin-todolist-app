@@ -20,7 +20,6 @@
     <EmbeddedResource Include="Assets\FontAwesome6Brands-Regular-400.otf" />
     <EmbeddedResource Include="Assets\FontAwesome6Free-Regular-400.otf" />
     <EmbeddedResource Include="Assets\FontAwesome6Free-Solid-900.otf" />
-    <EmbeddedResource Include="Resources\95434-history.json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -39,5 +38,9 @@
     <EmbeddedResource Update="Views\TaskInfo.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\" />
   </ItemGroup>
 </Project>

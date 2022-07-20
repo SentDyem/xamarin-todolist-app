@@ -37,7 +37,7 @@
                     <DataTemplate>
                         <Grid Padding="10" RowDefinitions ="50" ColumnDefinitions ="45, *">
                             <BoxView Grid.Column= "1"/>
-                            <CheckBox Grid.Column="0" IsChecked="{Binding Completed}" />
+                            <CheckBox Grid.Column="0" IsChecked="{Binding Completed}" Color="OrangeRed" IsEnabled="False"/>
                             <Label Grid.Column="1" Text="{Binding Content}" FontSize="18" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" ></Label>
                         </Grid>
 
@@ -45,10 +45,9 @@
                 </CollectionView.ItemTemplate>
                 <CollectionView.EmptyView>
                     <ContentView>
-                        
+
                         <StackLayout HorizontalOptions="CenterAndExpand"
                              VerticalOptions="CenterAndExpand">
-                            
                             <Label Text="Заметки не найдены."
                            Margin="10,25,10,10"
                            FontAttributes="Bold"
@@ -67,12 +66,7 @@
             
         </StackLayout>
         <Button BackgroundColor="OrangeRed" WidthRequest="300" Text="Добавить" TextColor="White" HorizontalOptions="Center" VerticalOptions="End" Margin="30" CornerRadius="10" Clicked="AddButton_Clicked"/>
-        <forms:AnimationView x:Name="animationView"
-    Animation="resource://Resources.95434-history.json?assembly=todolist-app"
-    AnimationSource="EmbeddedResource"
-                             AutoPlay="True"
-    VerticalOptions="FillAndExpand"
-    HorizontalOptions="FillAndExpand" />
+        
     </StackLayout>
 
 </ContentPage>

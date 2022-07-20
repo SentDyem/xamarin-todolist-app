@@ -21,7 +21,7 @@
                 <BoxView/>
                 <Button FontFamily ="FAS" Text="{x:Static fontAwesome:FontAwesomeIcons.AngleLeft}" FontSize ="Medium" WidthRequest="60" HeightRequest="60" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="Transparent" Clicked="DownButton_Clicked"></Button>
                 <BoxView Grid.Column="1"/>
-                <Label Grid.Column="1" Text="Задача на сегодня" FontSize="26" TextColor="Black" Margin="15"  FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="CenterAndExpand">
+                <Label Grid.Column="1" Text="Редактирование" FontSize="26" TextColor="Black" Margin="15"  FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="CenterAndExpand">
                 </Label>
                 <BoxView Grid.Column="2"/>
                 <Button Grid.Column ="2" FontFamily="FAS" Text="{x:Static fontAwesome:FontAwesomeIcons.FloppyDisk}" FontSize ="Medium" WidthRequest="60" HeightRequest="60" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="Transparent" Clicked="OnSaveButton_Clicked"></Button>

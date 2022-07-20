@@ -19,11 +19,11 @@ public partial class AppShell : Shell
             var requestNotification = new NotificationRequest
             {
                 BadgeNumber = 1,
-                Description = "Test",
-                Title = "Деловик ",
+                Description = "У Деловика важная информация.",
+                Title = "Пора проверить последние заметки!",
                 NotificationId = 1337,
                 Schedule = {
-                    NotifyTime = DateTime.Now.AddSeconds(10)
+                    NotifyTime = DateTime.Now.AddSeconds(45)
                 }
 
             };
