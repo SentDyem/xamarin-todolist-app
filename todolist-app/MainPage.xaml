@@ -24,12 +24,12 @@
             </Label>
             <BoxView Grid.Column="2"
                   />
-            <Button Grid.Column="2"  FontFamily ="FAS" Text="{x:Static fontAwesome:FontAwesomeIcons.Info}" FontSize ="Medium" WidthRequest="60" HeightRequest="60"
+            <Button Grid.Column="2"  FontFamily ="FAS" Text="{x:Static fontAwesome:FontAwesomeIcons.CircleInfo}" FontSize ="Medium" WidthRequest="60" HeightRequest="60"
            HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="Transparent" ></Button>
         </Grid>
-        <SearchBar Grid.Column="1" Placeholder="Поиск" TextChanged="SearchBar_TextChanged"></SearchBar>
+        
         <StackLayout Padding="10">
-            
+            <SearchBar Grid.Column="1" Placeholder="Поиск" TextChanged="SearchBar_TextChanged"></SearchBar>
             <CollectionView x:Name="notesList" SelectionChanged="OnSelectionChanged" SelectionMode="Single">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
