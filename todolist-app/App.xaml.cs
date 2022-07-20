@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Plugin.LocalNotification;
+using System;
 using System.IO;
 using todolist_app.Services;
 using Xamarin.Forms;
@@ -24,6 +25,18 @@ namespace todolist_app
         public App()
         {
             InitializeComponent();
+            var requestNotification = new NotificationRequest
+            {
+                BadgeNumber = 1,
+                Description = "Test",
+                Title = "Деловик ",
+                NotificationId = 1337,
+                Schedule = {
+                    NotifyTime = DateTime.Now.AddSeconds(10)
+                }
+
+            };
+            NotificationCenter.Current.Show(requestNotification);
 
             MainPage = new AppShell();
  
