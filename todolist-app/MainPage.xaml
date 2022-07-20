@@ -22,28 +22,26 @@
             <BoxView/>
             <Label Text="Деловик" FontSize="26" TextColor="Black" Margin="15"  FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="CenterAndExpand">
             </Label>
-            <BoxView Grid.Column="1"
-                  />
-            <Button Grid.Column="1"  FontFamily ="FAS" Text="{x:Static fontAwesome:FontAwesomeIcons.Bell}" FontSize ="Medium" WidthRequest="60" HeightRequest="60"
-           HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="Transparent" ></Button>
             <BoxView Grid.Column="2"
                   />
-            <Button Grid.Column="2" FontFamily ="FAS" Text="{x:Static fontAwesome:FontAwesomeIcons.MagnifyingGlass}" FontSize ="Medium" WidthRequest="60" HeightRequest="60" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="Transparent"></Button>
+            <Button Grid.Column="2"  FontFamily ="FAS" Text="{x:Static fontAwesome:FontAwesomeIcons.Info}" FontSize ="Medium" WidthRequest="60" HeightRequest="60"
+           HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="Transparent" ></Button>
         </Grid>
+        <SearchBar Grid.Column="1" Placeholder="Поиск" TextChanged="SearchBar_TextChanged"></SearchBar>
         <StackLayout Padding="10">
-            <Label Text="Актуальные задачи" FontSize="20" TextColor="Black" Margin="15" FontAttributes="None" HorizontalOptions="Start" VerticalOptions="CenterAndExpand"></Label>
-            <ListView x:Name="notesList" ItemTapped="OnSelectionChanged" SelectionMode="Single">
-                <ListView.ItemTemplate>
+            
+            <CollectionView x:Name="notesList" SelectionChanged="OnSelectionChanged" SelectionMode="Single">
+                <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Padding="10" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">
-                                <Label Text="{Binding Content}" FontSize="18"></Label>
-                                <Label Text="{Binding Date}" FontSize="10"></Label>
-                            </StackLayout>
-                        </ViewCell>
+                        <Grid Padding="10" RowDefinitions ="50" ColumnDefinitions ="45, *">
+                            <BoxView Grid.Column= "1"/>
+                            <CheckBox Grid.Column="0" IsChecked="{Binding Completed}" />
+                            <Label Grid.Column="1" Text="{Binding Content}" FontSize="18" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" ></Label>
+                        </Grid>
+
                     </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </StackLayout>
         <Button BackgroundColor="OrangeRed" WidthRequest="300" Text="Добавить" TextColor="White" HorizontalOptions="Center" VerticalOptions="End" Margin="30" CornerRadius="10" Clicked="AddButton_Clicked"/>
     </StackLayout>

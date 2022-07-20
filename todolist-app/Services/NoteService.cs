@@ -30,6 +30,11 @@ namespace todolist_app.Services
             return db.Table<Note>().Where(i => i.Id == id).FirstOrDefaultAsync();
         }
 
+        public Task<List<Note>> GetNotesSearchAsync(string textValue)
+        {
+            return db.Table<Note>().Where(i => i.Content.StartsWith(textValue)).ToListAsync();
+        }
+
         public Task<int> SaveNoteAsync(Note note)
         {
             if (note.Id != 0)

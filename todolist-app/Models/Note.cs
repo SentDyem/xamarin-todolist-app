@@ -14,6 +14,10 @@ namespace todolist_app.Models
 
         public DateTime Date { get; set; }
 
-        public Boolean Completed { get; set; }
+
+        public bool Completed
+        {get; set;
+        }
+
     }
 }

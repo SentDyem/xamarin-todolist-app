@@ -32,11 +32,11 @@ namespace todolist_app
             await Shell.Current.GoToAsync(nameof(TaskInfo));
         }
 
-        private async void OnSelectionChanged(object sender, ItemTappedEventArgs e)
+        private async void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (e.Item != null)
+            if (e.CurrentSelection != null)
             {
-                Note note = (Note)e.Item as Note;
+                Note note = (Note)e.CurrentSelection.FirstOrDefault();
                 await Shell.Current.GoToAsync($"{nameof(TaskInfo)}?{nameof(TaskInfo.ItemId)}={note.Id.ToString()}");
             }
         }
@@ -45,6 +45,20 @@ namespace todolist_app
         {
             notesList.ItemsSource = await App.NoteService.GetNotesAsync();
                 base.OnAppearing();
+        }
+
+        private async void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
+        {
+            var checkbox = (CheckBox)sender;
+            var selectedNote = BindingContext as Note;
+            selectedNote.Completed = e.Value;
+            await App.NoteService.SaveNoteAsync(selectedNote);
+
+        }
+
+        private async void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            notesList.ItemsSource = await App.NoteService.GetNotesSearchAsync(e.NewTextValue);
         }
     }
 }

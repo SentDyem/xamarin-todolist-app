@@ -9,7 +9,6 @@
             <Grid Padding="10">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="70" />
-                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="0.1*"/>
@@ -23,13 +22,14 @@
                 </Label>
                 <BoxView Grid.Column="2"/>
                 <Button Grid.Column ="2" FontFamily="FAS" Text="{x:Static fontAwesome:FontAwesomeIcons.ShareNodes}" FontSize ="Medium" WidthRequest="60" HeightRequest="60" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="Transparent" Clicked="ShareButton_ClickedAsync"></Button>
-                <BoxView Grid.Row="1" Grid.ColumnSpan="3"/>
-                <Editor Grid.Row ="1" Grid.ColumnSpan="3" Placeholder="Введите текст" Text="{Binding Content}" HeightRequest="350"/>
             </Grid>
-            <StackLayout Orientation="Vertical">
-                <Button BackgroundColor="LightGreen" WidthRequest="300" Text="Сохранить" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" Margin="30" CornerRadius="10" Clicked="OnSaveButton_Clicked"/>
-                <Button BackgroundColor="PaleVioletRed" WidthRequest="300" Text="Удалить" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" Margin="30" CornerRadius="10" Clicked="OnDeleteButton_Clicked"/>
-            </StackLayout>
-            </StackLayout>
+            <Grid Padding="10" RowDefinitions ="Auto, 100" ColumnDefinitions ="150, 50, 25, *">
+                <BoxView Grid.Row="0" Grid.ColumnSpan="4"/>
+                <Editor Grid.Row ="0" Grid.ColumnSpan="4" Placeholder="Введите текст" Text="{Binding Content}" HeightRequest="350"/>
+                <Button Grid.Row="1" BackgroundColor="LightGreen" WidthRequest="50" Text="Сохранить" TextColor="White" Margin="30" CornerRadius="10" Clicked="OnSaveButton_Clicked"/>
+                <BoxView Grid.Row="1" Grid.Column="1" BackgroundColor="Red" />
+                <Button Grid.Row="1" Grid.Column="2" BackgroundColor="PaleVioletRed" WidthRequest="50" Text="Удалить" TextColor="White" Margin="30" CornerRadius="10" Clicked="OnDeleteButton_Clicked"/>
+            </Grid>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
