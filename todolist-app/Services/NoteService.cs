@@ -20,36 +20,36 @@ namespace todolist_app.Services
             db.CreateTableAsync<Note>().Wait();
 
         }
-        public Task<List<Note>> GetNotesAsync()
+        public async Task<List<Note>> GetNotesAsync()
         {
-            return db.Table<Note>().ToListAsync();
+            return await db.Table<Note>().ToListAsync();
         }
 
-        public Task<Note> GetNoteAsync(int id)
+        public async Task<Note> GetNoteAsync(int id)
         {
-            return db.Table<Note>().Where(i => i.Id == id).FirstOrDefaultAsync();
+            return await db.Table<Note>().Where(i => i.Id == id).FirstOrDefaultAsync();
         }
 
-        public Task<List<Note>> GetNotesSearchAsync(string textValue)
+        public async Task<List<Note>> GetNotesSearchAsync(string textValue)
         {
-            return db.Table<Note>().Where(i => i.Content.StartsWith(textValue)).ToListAsync();
+            return await db.Table<Note>().Where(i => i.Content.StartsWith(textValue)).ToListAsync();
         }
 
-        public Task<int> SaveNoteAsync(Note note)
+        public async Task<int> SaveNoteAsync(Note note)
         {
             if (note.Id != 0)
             {
-                return db.UpdateAsync(note);
+                return await db.UpdateAsync(note);
             }
             else
             {
-                return db.InsertAsync(note);
+                return await db.InsertAsync(note);
             }
         }
 
-        public Task<int> DeleteNoteAsync(Note note)
+        public async Task<int> DeleteNoteAsync(Note note)
         {
-            return db.DeleteAsync(note);
+            return await db.DeleteAsync(note);
         }
     }
 }

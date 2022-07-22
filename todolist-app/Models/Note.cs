@@ -12,12 +12,11 @@ namespace todolist_app.Models
 
         public string Content { get; set; }
 
-        public DateTime Date { get; set; }
-
-
-        public bool Completed
-        {get; set;
+        DateTime actualDate = DateTime.UtcNow;
+        public DateTime Date {
+            get; set;
         }
+        public bool Completed { get; set; }
 
     }
 }

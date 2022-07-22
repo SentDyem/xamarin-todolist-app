@@ -48,8 +48,8 @@ public partial class TaskInfo : ContentPage
         private async void OnSaveButton_Clicked(object sender, EventArgs e)
         {
             Note note = (Note)BindingContext;
-            note.Date = DateTime.UtcNow;
-            note.Completed = false;
+            //note.Date = DateTime.UtcNow;
+            //note.Completed = false;
             if (!string.IsNullOrWhiteSpace(note.Content))
             {
                 await App.NoteService.SaveNoteAsync(note);
@@ -66,7 +66,7 @@ public partial class TaskInfo : ContentPage
 
         private async void ShareButton_ClickedAsync(object sender, EventArgs e)
         {
-            await Share.RequestAsync("This is a test message!!!", "Hello");
+            await Share.RequestAsync("Test Message", "Test");
         }
     }
 }
