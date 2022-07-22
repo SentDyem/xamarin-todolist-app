@@ -12,7 +12,7 @@ namespace todolist_app.Services
     
      public class NoteService
 {
-        readonly SQLiteAsyncConnection db;
+        public readonly SQLiteAsyncConnection db;
 
         public NoteService(string connectionString)
         {
@@ -34,6 +34,7 @@ namespace todolist_app.Services
         {
             return await db.Table<Note>().Where(i => i.Content.StartsWith(textValue)).ToListAsync();
         }
+
 
         public async Task<int> SaveNoteAsync(Note note)
         {

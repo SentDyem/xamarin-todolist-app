@@ -23,7 +23,7 @@ public partial class AppShell : Shell
                 Title = "Пора проверить последние заметки!",
                 NotificationId = 1337,
                 Schedule = {
-                    NotifyTime = DateTime.Now.AddSeconds(45)
+                    NotifyTime = DateTime.Now.AddSeconds(86400)
                 }
 
             };

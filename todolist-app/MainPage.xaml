@@ -28,16 +28,14 @@
             <Button Grid.Column="2"  FontFamily ="FAS" Text="{x:Static fontAwesome:FontAwesomeIcons.CircleInfo}" FontSize ="Medium" WidthRequest="60" HeightRequest="60"
            HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="Transparent" Clicked="OpenPooupButton_Clicked"></Button>
         </Grid>
-        
+        <SearchBar Grid.Column="1" Placeholder="Поиск" TextChanged="SearchBar_TextChanged"></SearchBar>
         <StackLayout Padding="10">
-            <SearchBar Grid.Column="1" Placeholder="Поиск" TextChanged="SearchBar_TextChanged"></SearchBar>
-            <CollectionView x:Name="notesList" SelectionChanged="OnSelectionChanged" SelectionMode="Single">
-                
-                    <CollectionView.ItemTemplate>
+            <CollectionView x:Name="notesList" SelectionChanged="OnSelectionChanged" SelectionMode="Single" >
+                <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid Padding="10" RowDefinitions ="50" ColumnDefinitions ="45, *">
                             <BoxView Grid.Column= "1"/>
-                            <CheckBox Grid.Column="0" IsChecked="{Binding Completed}" Color="OrangeRed" IsEnabled="False"/>
+                            <CheckBox Grid.Column="0" IsChecked="{Binding Completed}" Color="OrangeRed" IsEnabled="False" />
                             <Label Grid.Column="1" Text="{Binding Content}" FontSize="18" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" ></Label>
                         </Grid>
 
