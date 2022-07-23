@@ -9,11 +9,7 @@
             <Grid Padding="10">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="70" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
+                    <RowDefinition Height="2*" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="0.1*"/>
@@ -26,13 +22,19 @@
                 <Label Grid.Row="0" Grid.Column="1" Text="Редактирование" FontSize="26" TextColor="Black" Margin="15"  FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="CenterAndExpand">
                 </Label>
                 <Button Grid.Row="0" Grid.Column ="2" FontFamily="FAS" Text="{x:Static fontAwesome:FontAwesomeIcons.ShareNodes}" FontSize ="Medium" WidthRequest="60" HeightRequest="60" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="Transparent" Clicked="ShareButton_ClickedAsync"></Button>
-                <Editor Grid.Row ="1" Grid.ColumnSpan="3" Placeholder="Введите текст" Text="{Binding Content}" HeightRequest="500"/>
-                <DatePicker Grid.Row="2" Grid.Column="1" MinimumDate="07/22/2022" MaximumDate="12/31/2034" Date="{Binding Date}" HorizontalOptions="CenterAndExpand"/>
-                <CheckBox Grid.Row="3" Grid.Column="2" IsChecked="{Binding Completed }"/>
-                <Button Grid.Row="4" Grid.ColumnSpan="3" FontFamily="FAS" Text="{x:Static fontAwesome:FontAwesomeIcons.TrashCan}" TextColor="White" FontSize="Large" WidthRequest="150"  CornerRadius="10" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="IndianRed" Clicked="OnDeleteButton_Clicked"/>
-                <Button Grid.Row="5" Grid.ColumnSpan="3" Text="Save" Clicked="OnSaveButton_Clicked" TextColor="White" FontSize="Large" WidthRequest="150"  CornerRadius="10" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="Green"/>
+                <Editor Grid.Row ="1" Grid.ColumnSpan="3" Placeholder="Введите текст" Text="{Binding Content}" HeightRequest="400"/>
             </Grid>
-
+            <Grid ColumnDefinitions="1.5*, *, *"  VerticalOptions="StartAndExpand" Padding="10">
+                <Label Grid.Row ="0" Grid.Column="0" FontSize = "18" Text="Выберите дату:" VerticalOptions="CenterAndExpand"/>
+                <DatePicker Grid.Row="0" Grid.Column="1" MinimumDate="07/22/2022" MaximumDate="12/31/2034" Date="{Binding Date}" HorizontalOptions="CenterAndExpand"/>
+                <TimePicker Grid.Row="0" Grid.Column="2"  Time ="{Binding Date}" HorizontalOptions="CenterAndExpand"/>
+            </Grid>
+            <Grid ColumnDefinitions="*,*,*,*" VerticalOptions="EndAndExpand" Padding="30" HorizontalOptions="Fill" >
+                <Label Text="Выполнено" Grid.Column="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="OrangeRed"/>
+                <CheckBox Grid.Column="1" IsChecked="{Binding Completed }" VerticalOptions="FillAndExpand" Color="OrangeRed"/>
+                <Button Grid.Column="2" Clicked="OnDeleteButton_Clicked" FontFamily="FAS" Text="{x:Static fontAwesome:FontAwesomeIcons.TrashCan}" FontSize="Large"/>
+                <Button Grid.Column ="3" Clicked="OnSaveButton_Clicked"  FontFamily="FAS" Text="{x:Static fontAwesome:FontAwesomeIcons.FloppyDisk}" FontSize="Large"/>
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

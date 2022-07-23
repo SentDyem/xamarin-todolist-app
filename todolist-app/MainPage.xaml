@@ -30,7 +30,7 @@
         </Grid>
         <SearchBar Grid.Column="1" Placeholder="Поиск" TextChanged="SearchBar_TextChanged"></SearchBar>
         <StackLayout Padding="10">
-            <CollectionView x:Name="notesList" SelectionChanged="OnSelectionChanged" SelectionMode="Single" >
+            <CollectionView x:Name="notesList" ItemsSource="{Binding Notes}" SelectionChanged="OnSelectionChanged" SelectionMode="Single">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid Padding="10" RowDefinitions ="50" ColumnDefinitions ="45, *">

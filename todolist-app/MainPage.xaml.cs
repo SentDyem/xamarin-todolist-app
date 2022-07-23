@@ -20,7 +20,6 @@ namespace todolist_app
 
             BindingContext = new Note();
 
-
         }
 
         private async void phonesList_ItemTapped(object sender, ItemTappedEventArgs e)
@@ -66,7 +65,7 @@ namespace todolist_app
 
         private async void OpenPooupButton_Clicked(object sender, EventArgs e)
         {
-            await DisplayAlert("Информация о приложении", "Деловик ver. 0.1", "OK");
+            await DisplayAlert("Информация о приложении", "Деловик ver. 0.2", "OK");
         }
     }
 }
