@@ -30,15 +30,15 @@
         </Grid>
         <SearchBar Grid.Column="1" Placeholder="Поиск" TextChanged="SearchBar_TextChanged"></SearchBar>
         <StackLayout Padding="10">
-            <CollectionView x:Name="notesList" ItemsSource="{Binding Notes}" SelectionChanged="OnSelectionChanged" SelectionMode="Single">
+            <CollectionView x:Name="notesList" ItemsSource="{Binding Notes}"  SelectionChanged="OnSelectionChanged" SelectionMode="Single">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid Padding="10" RowDefinitions ="50" ColumnDefinitions ="45, *">
                             <BoxView Grid.Column= "1"/>
                             <CheckBox Grid.Column="0" IsChecked="{Binding Completed}" Color="OrangeRed" IsEnabled="False" />
                             <Label Grid.Column="1" Text="{Binding Content}" FontSize="18" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" ></Label>
+                            <Label Grid.Column ="2" Text="{Binding Date}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                         </Grid>
-
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
                 <CollectionView.EmptyView>

@@ -26,8 +26,8 @@
             </Grid>
             <Grid ColumnDefinitions="1.5*, *, *"  VerticalOptions="StartAndExpand" Padding="10">
                 <Label Grid.Row ="0" Grid.Column="0" FontSize = "18" Text="Выберите дату:" VerticalOptions="CenterAndExpand"/>
-                <DatePicker Grid.Row="0" Grid.Column="1" MinimumDate="07/22/2022" MaximumDate="12/31/2034" Date="{Binding Date}" HorizontalOptions="CenterAndExpand"/>
-                <TimePicker Grid.Row="0" Grid.Column="2"  Time ="{Binding Date}" HorizontalOptions="CenterAndExpand"/>
+                <DatePicker x:Name="timeOfDate" Grid.Row="0" Grid.Column="1" MinimumDate="07/22/2022" MaximumDate="12/31/2034" Date="{Binding Date}" HorizontalOptions="CenterAndExpand"/>
+                <TimePicker x:Name="timeOfDay" Grid.Row="0" Grid.Column="2" Time ="{Binding Date.TimeOfDay}" HorizontalOptions="CenterAndExpand"/>
             </Grid>
             <Grid ColumnDefinitions="*,*,*,*" VerticalOptions="EndAndExpand" Padding="30" HorizontalOptions="Fill" >
                 <Label Text="Выполнено" Grid.Column="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="OrangeRed"/>

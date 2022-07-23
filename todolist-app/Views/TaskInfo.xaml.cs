@@ -27,6 +27,7 @@ public partial class TaskInfo : ContentPage
         InitializeComponent();
 
             BindingContext = new Note();
+            timeOfDate.MinimumDate = DateTime.UtcNow;
     }
 
         private async void LoadNote(string value)
@@ -48,7 +49,7 @@ public partial class TaskInfo : ContentPage
         private async void OnSaveButton_Clicked(object sender, EventArgs e)
         {
             Note note = (Note)BindingContext;
-            //note.Date = DateTime.UtcNow;
+         // note.Date = timeOfDate.Date + timeOfDay.Time;
             //note.Completed = false;
             if (!string.IsNullOrWhiteSpace(note.Content))
             {
