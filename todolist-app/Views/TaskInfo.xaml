@@ -22,7 +22,7 @@
                 <Label Grid.Row="0" Grid.Column="1" Text="Редактирование" FontSize="26" TextColor="Black" Margin="15"  FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="CenterAndExpand">
                 </Label>
                 <Button Grid.Row="0" Grid.Column ="2" FontFamily="FAS" Text="{x:Static fontAwesome:FontAwesomeIcons.ShareNodes}" FontSize ="Medium" WidthRequest="60" HeightRequest="60" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="Transparent" Clicked="ShareButton_ClickedAsync"></Button>
-                <Editor Grid.Row ="1" Grid.ColumnSpan="3" Placeholder="Введите текст" Text="{Binding Content}" HeightRequest="400"/>
+                <Editor x:Name="editor" Grid.Row ="1" Grid.ColumnSpan="3" Placeholder="Введите текст" Text="{Binding Content}" HeightRequest="400"/>
             </Grid>
             <Grid ColumnDefinitions="1.5*, *, *"  VerticalOptions="StartAndExpand" Padding="10">
                 <Label Grid.Row ="0" Grid.Column="0" FontSize = "18" Text="Выберите дату:" VerticalOptions="CenterAndExpand"/>

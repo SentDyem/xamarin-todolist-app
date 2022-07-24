@@ -61,7 +61,6 @@
                     </ContentView>
                 </CollectionView.EmptyView>
             </CollectionView>
-            
         </StackLayout>
         <Button BackgroundColor="OrangeRed" WidthRequest="300" Text="Добавить" TextColor="White" HorizontalOptions="Center" VerticalOptions="End" Margin="30" CornerRadius="10" Clicked="AddButton_Clicked"/>
         

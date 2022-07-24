@@ -43,7 +43,22 @@ public partial class TaskInfo : ContentPage
 
         private async void DownButton_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new MainPage());
+            Note note = (Note)BindingContext;
+            if (!string.IsNullOrWhiteSpace(note.Content))
+            {
+                bool result = await DisplayAlert("Подтвердить действие", "Вы не сохранили изменения. Уверены, что хотите выйти?", "Да", "Нет");
+                if (result == true)
+                {
+                    await Navigation.PushAsync(new MainPage());
+                }
+                
+            }
+            else
+            {
+                await Navigation.PushAsync(new MainPage());
+            }
+          
+ 
         }
 
         private async void OnSaveButton_Clicked(object sender, EventArgs e)

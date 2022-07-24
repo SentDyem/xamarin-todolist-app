@@ -45,7 +45,7 @@ namespace todolist_app
         protected override async void OnAppearing()
         {
             notesList.ItemsSource = await App.NoteService.GetNotesAsync();
-                base.OnAppearing();
+            base.OnAppearing();
         }
 
         private async void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
@@ -61,6 +61,7 @@ namespace todolist_app
         private async void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
         {
             notesList.ItemsSource = await App.NoteService.GetNotesSearchAsync(e.NewTextValue);
+            
         }
 
         private async void OpenPooupButton_Clicked(object sender, EventArgs e)
