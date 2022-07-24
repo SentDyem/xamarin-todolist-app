@@ -21,7 +21,7 @@ public partial class AppShell : Shell
 
            NotificationCenter.Current.Show((notification) => notification
             .WithScheduleOptions((schedule) => schedule
-                    .NotifyAt(DateTime.Now.AddSeconds(30)) // Used for Scheduling local notification, if not specified notification will show immediately.
+                    .NotifyAt(DateTime.Now.AddSeconds(46000)) // Used for Scheduling local notification, if not specified notification will show immediately.
                     .Build())
                         .WithTitle("Активные задачи")
                         .WithDescription("Обнаружены активные задачи.")

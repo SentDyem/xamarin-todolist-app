@@ -82,7 +82,11 @@ public partial class TaskInfo : ContentPage
 
         private async void ShareButton_ClickedAsync(object sender, EventArgs e)
         {
-            await Share.RequestAsync("Test Message", "Test");
+            await Share.RequestAsync(new ShareTextRequest
+                {
+                Title = "Приглашаю в Деловик.",
+                Text = "Привет! Недавно начал использовать новый планировщик дел под названием 'Деловик'.Скорее присоединяйся"
+            });
         }
     }
 }

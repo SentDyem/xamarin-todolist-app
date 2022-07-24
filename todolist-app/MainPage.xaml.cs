@@ -44,7 +44,10 @@ namespace todolist_app
 
         protected override async void OnAppearing()
         {
-            notesList.ItemsSource = await App.NoteService.GetNotesAsync();
+            bool completed = false;
+            allNotesList.ItemsSource = await App.NoteService.GetNotesAsync();
+            activeNotesList.ItemsSource = await App.NoteService.GetGroupNotesAsync(completed = false);
+            completedNotesList.ItemsSource = await App.NoteService.GetGroupNotesAsync(completed = true);
             base.OnAppearing();
         }
 
@@ -60,8 +63,9 @@ namespace todolist_app
 
         private async void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
         {
-            notesList.ItemsSource = await App.NoteService.GetNotesSearchAsync(e.NewTextValue);
-            
+            allNotesList.ItemsSource = await App.NoteService.GetNotesSearchAsync(e.NewTextValue);
+            tabView.SelectedIndex = 0;
+
         }
 
         private async void OpenPooupButton_Clicked(object sender, EventArgs e)

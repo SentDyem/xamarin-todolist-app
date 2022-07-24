@@ -35,19 +35,14 @@ namespace todolist_app.Services
             return await db.Table<Note>().Where(i => i.Content.StartsWith(textValue)).ToListAsync();
         }
 
-        public async Task<List<Note>> GetActiveNotesAsync()
+        public async Task<List<Note>> GetGroupNotesAsync(bool completed)
         {
-            return await db.Table<Note>().Where(i => i.Completed == false).ToListAsync();
+            return await db.Table<Note>().Where(i => i.Completed == completed).ToListAsync();
         }
 
         public async Task <int> CountActiveNotesAsync()
         {
              return await db.Table<Note>().Where(i => i.Completed == false).CountAsync();   
-        }
-
-        public async Task<List<Note>> GetCompletedNotesAsync()
-        {
-            return await db.Table<Note>().Where(i => i.Completed == true).ToListAsync();
         }
 
         public async Task<int> SaveNoteAsync(Note note)

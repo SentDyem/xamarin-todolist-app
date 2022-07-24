@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="todolist_app.MainPage"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              xmlns:fontAwesome="clr-namespace:FontAwesome"
              xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms" 
              Title="Todolist"
@@ -10,7 +11,7 @@
     <ContentPage.Resources>
     </ContentPage.Resources>
 
-    <StackLayout>
+   <!-- <StackLayout>
         <Grid Padding="10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="70" />
@@ -64,6 +65,155 @@
         </StackLayout>
         <Button BackgroundColor="OrangeRed" WidthRequest="300" Text="Добавить" TextColor="White" HorizontalOptions="Center" VerticalOptions="End" Margin="30" CornerRadius="10" Clicked="AddButton_Clicked"/>
         
-    </StackLayout>
+    </StackLayout> -->
+    <StackLayout>
+        <Grid Padding="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2.6*" />
+                <ColumnDefinition Width="0.4*" />
+                <ColumnDefinition Width="0.4*" />
+            </Grid.ColumnDefinitions>
+            <BoxView/>
+            <Label Text="Деловик" FontSize="26" TextColor="Black" Margin="15"  FontAttributes="Bold" HorizontalOptions="Start" VerticalOptions="CenterAndExpand">
+            </Label>
+            <BoxView Grid.Column="2"
+                  />
+            <Button Grid.Column="2"  FontFamily ="FAS" Text="{x:Static fontAwesome:FontAwesomeIcons.CircleInfo}" FontSize ="Medium" WidthRequest="60" HeightRequest="60"
+           HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="Transparent" Clicked="OpenPooupButton_Clicked"></Button>
+        </Grid>
+        <SearchBar Grid.Column="1" Placeholder="Поиск" TextChanged="SearchBar_TextChanged"></SearchBar>
+        <xct:TabView
+            x:Name="tabView"
+                TabStripPlacement="Top"
+                TabStripBackgroundColor="Transparent"
+                TabStripHeight="60"
+                TabIndicatorColor="OrangeRed"
+                TabContentBackgroundColor="Transparent">
+            <!-- Первый таб-->
+            <xct:TabViewItem
+                    Text="Все"
+                    TextColor="Gray"
+                    TextColorSelected="Black"
+                    FontSize="12">
+                <StackLayout Padding="10">
+                    <CollectionView x:Name="allNotesList" ItemsSource="{Binding Notes}"  SelectionChanged="OnSelectionChanged" SelectionMode="Single">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Padding="10" RowDefinitions ="50" ColumnDefinitions ="45, *">
+                                    <BoxView Grid.Column= "1"/>
+                                    <CheckBox Grid.Column="0" IsChecked="{Binding Completed}" Color="OrangeRed" IsEnabled="False" />
+                                    <Label Grid.Column="1" Text="{Binding Content}" FontSize="18" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" ></Label>
+                                    <Label Grid.Column ="2" Text="{Binding Date}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                        <CollectionView.EmptyView>
+                            <ContentView>
 
+                                <StackLayout HorizontalOptions="CenterAndExpand"
+                             VerticalOptions="CenterAndExpand">
+                                    <Label Text="Заметки не найдены."
+                           Margin="10,25,10,10"
+                           FontAttributes="Bold"
+                           FontSize="18"
+                           HorizontalOptions="Fill"
+                           HorizontalTextAlignment="Center" />
+                                    <Label Text=" Нажмите кнопку Добавить, чтобы создать новую заметку."
+                           FontAttributes="Italic"
+                           FontSize="12"
+                           HorizontalOptions="Fill"
+                           HorizontalTextAlignment="Center" />
+                                </StackLayout>
+                            </ContentView>
+                        </CollectionView.EmptyView>
+                    </CollectionView>
+                </StackLayout>
+
+            </xct:TabViewItem>
+            <!-- Второй таб-->
+            <xct:TabViewItem
+                    Text="Активные"
+                    TextColor="Gray"
+                    TextColorSelected="Black"
+                    FontSize="12">
+                <StackLayout Padding="10">
+                    <CollectionView x:Name="activeNotesList" ItemsSource="{Binding Notes}"  SelectionChanged="OnSelectionChanged" SelectionMode="Single">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Padding="10" RowDefinitions ="50" ColumnDefinitions ="45, *">
+                                    <BoxView Grid.Column= "1"/>
+                                    <CheckBox Grid.Column="0" IsChecked="{Binding Completed}" Color="OrangeRed" IsEnabled="False" />
+                                    <Label Grid.Column="1" Text="{Binding Content}" FontSize="18" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" ></Label>
+                                    <Label Grid.Column ="2" Text="{Binding Date}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                        <CollectionView.EmptyView>
+                            <ContentView>
+
+                                <StackLayout HorizontalOptions="CenterAndExpand"
+                             VerticalOptions="CenterAndExpand">
+                                    <Label Text="Заметки не найдены."
+                           Margin="10,25,10,10"
+                           FontAttributes="Bold"
+                           FontSize="18"
+                           HorizontalOptions="Fill"
+                           HorizontalTextAlignment="Center" />
+                                    <Label Text=" Нажмите кнопку Добавить, чтобы создать новую заметку."
+                           FontAttributes="Italic"
+                           FontSize="12"
+                           HorizontalOptions="Fill"
+                           HorizontalTextAlignment="Center" />
+                                </StackLayout>
+                            </ContentView>
+                        </CollectionView.EmptyView>
+                    </CollectionView>
+                </StackLayout>
+            </xct:TabViewItem>
+            <!-- Третий таб-->
+            <xct:TabViewItem
+                    Text="Выполненнные"
+                    TextColor="Gray"
+                    TextColorSelected="Black"
+                    FontSize="12">
+                <StackLayout Padding="10">
+                    <CollectionView x:Name="completedNotesList" ItemsSource="{Binding Notes}"  SelectionChanged="OnSelectionChanged" SelectionMode="Single">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Padding="10" RowDefinitions ="50" ColumnDefinitions ="45, *">
+                                    <BoxView Grid.Column= "1"/>
+                                    <CheckBox Grid.Column="0" IsChecked="{Binding Completed}" Color="OrangeRed" IsEnabled="False" />
+                                    <Label Grid.Column="1" Text="{Binding Content}" FontSize="18" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" ></Label>
+                                    <Label Grid.Column ="2" Text="{Binding Date}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                        <CollectionView.EmptyView>
+                            <ContentView>
+
+                                <StackLayout HorizontalOptions="CenterAndExpand"
+                             VerticalOptions="CenterAndExpand">
+                                    <Label Text="Заметки не найдены."
+                           Margin="10,25,10,10"
+                           FontAttributes="Bold"
+                           FontSize="18"
+                           HorizontalOptions="Fill"
+                           HorizontalTextAlignment="Center" />
+                                    <Label Text=" Нажмите кнопку Добавить, чтобы создать новую заметку."
+                           FontAttributes="Italic"
+                           FontSize="12"
+                           HorizontalOptions="Fill"
+                           HorizontalTextAlignment="Center" />
+                                </StackLayout>
+                            </ContentView>
+                        </CollectionView.EmptyView>
+                    </CollectionView>
+                </StackLayout>
+            </xct:TabViewItem>
+        </xct:TabView>
+        <Button BackgroundColor="OrangeRed" WidthRequest="300" Text="Добавить" TextColor="White" HorizontalOptions="Center" VerticalOptions="End" Margin="30" CornerRadius="10" Clicked="AddButton_Clicked"/>
+    </StackLayout>
 </ContentPage>
