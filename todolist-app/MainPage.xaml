@@ -175,7 +175,7 @@
             </xct:TabViewItem>
             <!-- Третий таб-->
             <xct:TabViewItem
-                    Text="Выполненнные"
+                    Text="Выполненные"
                     TextColor="Gray"
                     TextColorSelected="Black"
                     FontSize="12">
